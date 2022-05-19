@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title','PHP教材')
+@section('title','教材一覧')
 
 @section('content')
 @include('nav')
@@ -10,7 +10,7 @@
     @foreach($articles as $article)
     <div class="card bg-light">
       <div class="card-body">
-        <img class="card-img-top udemy" src="{{asset($article->img)}}" alt="Card image cap">
+        <img class="card-img-top subject" src="{{asset($article->img)}}" alt="教材の画像">
         <h5 class="card-title">{{$article->title}}
         </h5>
         <p class="card-text">
@@ -22,7 +22,6 @@
     @endforeach
   </div>
 </div>
-
 
 
 @endsection

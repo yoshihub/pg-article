@@ -19,7 +19,7 @@ class ArticleController extends Controller
         return view('articles.subject', ['articles' => $articles]);
     }
 
-    public function show(Request $request, Article $article)
+    public function show(Article $article)
     {
 
         return view('articles.show', ['article' => $article]);
@@ -27,8 +27,7 @@ class ArticleController extends Controller
 
     public function store(Request $request, Article $article)
     {
-        // $project = Article::find(1);
-        //idが1番のプロジェクトを取得します。
+
         auth()->user()->articles()->attach($article->id, ['comment' => $request->comment]);
         return back();
     }

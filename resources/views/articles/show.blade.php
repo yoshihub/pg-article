@@ -1,15 +1,15 @@
 @extends('app')
 
-@section('title','PHP教材')
+@section('title','教材詳細')
 
 @section('content')
 @include('nav')
 
 <div class="container">
   <div class="row">
-    <div class="card g-light">
+    <div class="card bg-light">
       <div class="card-body">
-        <img class="card-img-top udemy" src="{{asset($article->img)}}" alt="Card image cap">
+        <img class="card-img-top subject" src="{{asset($article->img)}}" alt="教材の画像">
         <h5 class="card-title">{{$article->title}}
         </h5>
         <p class="card-text">
@@ -30,9 +30,9 @@
     <div class="card">
       <p class="card-title">ユーザー名：{{$user->name}}</p>
       <p class="card-text">コメント：{{$user->pivot->comment}}</p>
+      <p class="card-text">投稿日：{{$user->pivot->created_at}}</p>
     </div>
     @endforeach
   </div>
-</div>
 
-@endsection
+  @endsection

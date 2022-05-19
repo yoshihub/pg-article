@@ -8,9 +8,14 @@
 <form method="POST" action="/articles/link">
   @csrf
   <input type="hidden" name="subject" value="php">
-  <button>PHPの教材</button>
+  <button type="submit">PHPの教材</button>
 </form>
 
+<form method="POST" action="/articles/link">
+  @csrf
+  <input type="hidden" name="subject" value="bootstrap">
+  <button type="submit">Bootstrapの教材</button>
+</form>
 
 
 
