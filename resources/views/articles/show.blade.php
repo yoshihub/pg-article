@@ -15,9 +15,10 @@
         <p class="card-text">
           {{$article->body}}
         </p>
-        <form method="POST" action="{{route('articles.store',$article->id)}}">
+        <form method="POST" action="{{route('articles.store')}}">
           @csrf
           <textarea type="text" name="comment" cols="30" rows="3"></textarea>
+          <input type="hidden" name="id" value="{{$article->id}}">
           <button type="submit">口コミ投稿</button>
         </form>
       </div>
@@ -26,11 +27,21 @@
 
   <div>
     <h3>口コミ一覧</h3>
-    @foreach($article->users as $user)
+    @php
+    $users=App\Article::find($article->id)->users()->orderBy('updated_at', 'desc')->get();
+    @endphp
+    @foreach($users as $user)
+
     <div class="card">
       <p class="card-title">ユーザー名：{{$user->name}}</p>
       <p class="card-text">コメント：{{$user->pivot->comment}}</p>
-      <p class="card-text">投稿日：{{$user->pivot->created_at}}</p>
+      <p class="card-text">投稿日：{{$user->pivot->updated_at}}</p>
+      <form method="POST" action="/articles/delete">
+        @csrf
+        <input type="hidden" name="id" value="{{$article->id}}">
+        <button>削除</button>
+      </form>
+
     </div>
     @endforeach
   </div>

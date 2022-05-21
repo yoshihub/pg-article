@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Article;
+use App\ArticleUser;
 use App\User;
 
 class ArticleController extends Controller
@@ -25,10 +26,22 @@ class ArticleController extends Controller
         return view('articles.show', ['article' => $article]);
     }
 
-    public function store(Request $request, Article $article)
+    public function store(Request $request)
     {
+        $result = ArticleUser::where('user_id', '=', auth()->id())->where('article_id', '=', $request->id)->first();
 
-        auth()->user()->articles()->attach($article->id, ['comment' => $request->comment]);
-        return back();
+        if ($result === null) {
+            auth()->user()->articles()->attach([
+                $request->id => ['comment' => $request->comment]
+            ]);
+            return back();
+        } else {
+            auth()->user()->articles()->detach($request->id);
+
+            auth()->user()->articles()->attach([
+                $request->id => ['comment' => $request->comment]
+            ]);
+            return back();
+        }
     }
 }

@@ -16,5 +16,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::group(['middleware' => 'auth'], function () {
-  Route::post('/articles/store/{article}', 'ArticleController@store')->name('articles.store');
+  Route::post('/articles/store', 'ArticleController@store')->name('articles.store');
+  Route::post('/articles/delete', 'ArticleController@delete')->name('articles.delete');
 });
