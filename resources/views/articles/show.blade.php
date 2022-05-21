@@ -36,12 +36,6 @@
       <p class="card-title">ユーザー名：{{$user->name}}</p>
       <p class="card-text">コメント：{{$user->pivot->comment}}</p>
       <p class="card-text">投稿日：{{$user->pivot->updated_at}}</p>
-      <form method="POST" action="/articles/delete">
-        @csrf
-        <input type="hidden" name="id" value="{{$article->id}}">
-        <button>削除</button>
-      </form>
-
     </div>
     @endforeach
   </div>
