@@ -14,10 +14,10 @@ class ArticleSeeder extends Seeder
     {
         Article::create(
             [
-                'title' => 'Bootstrap4 基礎講座',
-                'body' => 'udemyのベストセラー講座。',
-                'img' => 'img/boot2.png',
-                'subject' => 'bootstrap',
+                'title' => 'スラスラわかるJavaScript',
+                'body' => 'この本はJavascriptの本だが、前半部分の内容はhtmlです。htmlからjavascriptまで一気に学びたい方はこの本がおすすめ。',
+                'img' => 'img/html2.png',
+                'subject' => 'html',
             ],
         );
     }

@@ -22,12 +22,20 @@ class ArticleController extends Controller
 
     public function show(Article $article)
     {
+        $users = Article::find($article->id)->users;
 
-        return view('articles.show', ['article' => $article]);
+        return view(
+            'articles.show',
+            ['article' => $article, 'users' => $users]
+        );
     }
 
     public function store(Request $request)
     {
+        $request->validate([
+            'comment' => 'required|max:100',
+        ]);
+
         $result = ArticleUser::where('user_id', '=', auth()->id())->where('article_id', '=', $request->id)->first();
 
         if ($result === null) {

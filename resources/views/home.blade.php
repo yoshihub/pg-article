@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">ログイン画面</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -15,7 +15,7 @@
                     @endif
 
                     ログインしました！
-                    <a href="/">サービスへ戻る</a>
+                    <a class="btn btn-info text-white" href="/">サービスへ戻る</a>
                 </div>
             </div>
         </div>
