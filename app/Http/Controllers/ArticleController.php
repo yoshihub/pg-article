@@ -22,7 +22,10 @@ class ArticleController extends Controller
 
     public function show(Article $article)
     {
-        $users = Article::find($article->id)->users;
+        $users = Article::find($article->id)->users()
+            ->withPivot('created_at AS make_at')
+            ->orderBy('make_at', 'desc')
+            ->get();
 
         return view(
             'articles.show',
@@ -42,6 +45,8 @@ class ArticleController extends Controller
             auth()->user()->articles()->attach([
                 $request->id => ['comment' => $request->comment]
             ]);
+
+
             return back();
         } else {
             auth()->user()->articles()->detach($request->id);
@@ -49,6 +54,8 @@ class ArticleController extends Controller
             auth()->user()->articles()->attach([
                 $request->id => ['comment' => $request->comment]
             ]);
+
+            $this->show(Article::find($request->id));
             return back();
         }
     }

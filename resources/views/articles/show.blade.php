@@ -26,7 +26,7 @@
       </div>
       @endif
 
-      <form class="form-group mt-2" method="POST" action="{{route('articles.store')}}">
+      <form class="form-group mt-2 col-sm-12 col-md-8 col-lg-7" method="POST" action="{{route('articles.store')}}">
         @csrf
         <textarea class="form-control border border-info border-1" type="text" name="comment" cols="30" rows="3"></textarea>
         <input type="hidden" name="id" value="{{$article->id}}">
