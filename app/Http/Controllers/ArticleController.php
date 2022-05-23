@@ -55,7 +55,7 @@ class ArticleController extends Controller
                 $request->id => ['comment' => $request->comment]
             ]);
 
-            $this->show(Article::find($request->id));
+            // $this->show(Article::find($request->id));
             return back();
         }
     }
