@@ -11,12 +11,23 @@
         <li class="nav-item">
           <a class="nav-link" href="/">教材一覧</a>
         </li>
+        @guest
         <li class="nav-item">
           <a class="nav-link" href="/login">ログイン</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/register">ユーザー登録</a>
         </li>
+        @endguest
+
+        @auth
+        <li class="nav-item">
+          <form class="nav-link" action="/logout" method="post">
+            @csrf
+            <button type="submit">ログアウト</button>
+          </form>
+        </li>
+        @endauth
       </ul>
     </div>
   </div>

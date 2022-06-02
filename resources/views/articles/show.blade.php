@@ -26,12 +26,14 @@
       </div>
       @endif
 
+      @auth
       <form class="form-group mt-2 col-sm-12 col-md-8 col-lg-7" method="POST" action="{{route('articles.store')}}">
         @csrf
         <textarea class="form-control border border-info border-1" type="text" name="comment" cols="30" rows="3"></textarea>
         <input type="hidden" name="id" value="{{$article->id}}">
         <button class="btn btn-success mt-2" type="submit">口コミ投稿</button>
       </form>
+      @endauth
     </div>
   </div>
 
