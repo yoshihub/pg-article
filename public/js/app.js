@@ -65909,14 +65909,43 @@ var Example = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      foo: "baraaa"
+      modalOpen: false
     };
     return _this;
   }
 
   _createClass(Example, [{
+    key: "clickOpen",
+    value: function clickOpen() {
+      this.setState({
+        modalOpen: true
+      });
+    }
+  }, {
+    key: "clickClose",
+    value: function clickClose() {
+      this.setState({
+        modalOpen: false
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
+      var modal;
+
+      if (this.state.modalOpen) {
+        modal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "text-center mt-2"
+        }, "\u30D7\u30ED\u30B0\u30E9\u30DF\u30F3\u30B0\u306E\u5B66\u7FD2\u6559\u6750\u306E\u53E3\u30B3\u30DF\u3092\u898B\u3066\u3001", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u5B66\u7FD2\u3059\u308B\u6559\u6750\u306E\u9078\u5B9A\u306B\u5F79\u7ACB\u3061\u307E\u3059\u3002", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u81EA\u5206\u3067\u3082\u53E3\u30B3\u30DF\u306B\u6295\u7A3F\u51FA\u6765\u307E\u3059\u3002"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "btn btn-outline-danger mx-auto d-block",
+          onClick: function onClick() {
+            _this2.clickClose();
+          }
+        }, "\u9589\u3058\u308B"));
+      }
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -65924,12 +65953,13 @@ var Example = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-md-8"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-header"
-      }, "Example Component"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-body"
-      }, "I'm an example component!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.state.foo)))));
+        className: "card mt-4 mb-3"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn btn-secondary",
+        onClick: function onClick() {
+          _this2.clickOpen();
+        }
+      }, "\u3053\u306E\u30B5\u30A4\u30C8\u306F\u4F55\uFF1F"), modal))));
     }
   }]);
 
