@@ -15,7 +15,7 @@
         <button type="submit">
           <div>
             <img class="pgLink" src="{{asset('img/php.png')}}" alt="phpの画像">
-            <p class="h5 text-center mt-2">PHPの教材一覧</p>
+            <p id="subjectButton" class="h5 text-center mt-2">PHPの教材一覧</p>
           </div>
         </button>
       </form>
@@ -46,7 +46,9 @@
         </button>
       </form>
     </div>
-
   </div>
+  <div id="example"></div>
+  <script src="{{mix('js/app.js')}}"></script>
 </div>
+
 @endsection

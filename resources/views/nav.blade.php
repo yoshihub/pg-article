@@ -24,7 +24,7 @@
         <li class="nav-item">
           <form class="nav-link" action="/logout" method="post">
             @csrf
-            <button type="submit">ログアウト</button>
+            <button id="logoutButton" type="submit">ログアウト</button>
           </form>
         </li>
         @endauth
