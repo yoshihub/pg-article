@@ -65959,7 +65959,7 @@ var Example = /*#__PURE__*/function (_Component) {
         onClick: function onClick() {
           _this2.clickOpen();
         }
-      }, "\u3053\u306E\u30B5\u30A4\u30C8\u306F\u4F55\uFF1F"), modal))));
+      }, "\u3053\u306E\u30B5\u30A4\u30C8\u306F\u4F55??"), modal))));
     }
   }]);
 

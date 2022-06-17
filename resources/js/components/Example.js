@@ -38,7 +38,7 @@ export default class Example extends Component {
                         <div className="card mt-4 mb-3">
                             <button className="btn btn-secondary"
                                 onClick={() => { this.clickOpen() }}>
-                                このサイトは何？</button>
+                                このサイトは何??</button>
                             {modal}
                         </div>
                     </div>
