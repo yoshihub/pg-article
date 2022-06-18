@@ -27,9 +27,11 @@ class ArticleController extends Controller
             ->orderBy('make_at', 'desc')
             ->get();
 
+        $count = $article->users->count();
+
         return view(
             'articles.show',
-            ['article' => $article, 'users' => $users]
+            ['article' => $article, 'users' => $users, 'count' => $count]
         );
     }
 

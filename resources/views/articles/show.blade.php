@@ -13,7 +13,11 @@
         <h5 class="card-title fs-4 mt-2">{{$article->title}}
         </h5>
         <p class="card-text">
-          {{$article->body}}
+          {{$article->body}}<br>
+          <span class="fs-6 mt-1">
+            <i class="bi bi-chat-left-dots-fill text-success font-weight-bolder">
+            </i>{{$count}}件
+          </span>
         </p>
       </div>
       @if ($errors->any())
