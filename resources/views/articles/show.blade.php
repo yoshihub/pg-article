@@ -34,6 +34,18 @@
       <form id="createForm" class="form-group mt-2 col-sm-12 col-md-8 col-lg-7" method="POST" action="{{route('articles.store')}}">
         @csrf
         <textarea class="form-control border border-info border-1" type="text" name="comment" cols="30" rows="3"></textarea>
+        <div class="rate-form">
+          <input id="star5" type="radio" name="rate" value="5">
+          <label for="star5">★</label>
+          <input id="star4" type="radio" name="rate" value="4">
+          <label for="star4">★</label>
+          <input id="star3" type="radio" name="rate" value="3">
+          <label for="star3">★</label>
+          <input id="star2" type="radio" name="rate" value="2">
+          <label for="star2">★</label>
+          <input id="star1" type="radio" name="rate" value="1">
+          <label for="star1">★</label>
+        </div>
         <input type="hidden" name="id" value="{{$article->id}}">
         <button id="createButton" class="btn btn-success mt-2" type="submit">口コミ投稿</button>
       </form>
@@ -47,7 +59,10 @@
     @foreach($users as $user)
 
     <div class="card">
-      <p class="card-title">{{$user->name}}さん</p>
+      <p class="card-title">{{$user->name}}さん
+        <span class="ms-1">@for ($i = 0; $i < $user->pivot->rate; $i++) ⭐️ @endfor</span>
+      </p>
+
       <p class="card-text">{{$user->pivot->comment}}</p>
       <p class="card-text">投稿日：{{$user->pivot->updated_at}}</p>
     </div>

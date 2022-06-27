@@ -18,7 +18,7 @@ class User extends Authenticatable
     public function articles()
     {
         return $this->belongsToMany('App\Article')
-            ->withPivot('comment')->withTimestamps();
+            ->withPivot('comment', 'rate')->withTimestamps();
     }
 
     protected $fillable = [

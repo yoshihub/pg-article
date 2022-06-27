@@ -147,6 +147,7 @@ return [
 
   'attributes' => [
     'comment' => 'コメント',
+    'rate' => '星レビュー',
   ],
 
 ];

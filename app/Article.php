@@ -12,6 +12,6 @@ class Article extends Model
   public function users()
   {
     return $this->belongsToMany('App\User')
-      ->withPivot('comment')->withTimestamps();
+      ->withPivot('comment', 'rate')->withTimestamps();
   }
 }

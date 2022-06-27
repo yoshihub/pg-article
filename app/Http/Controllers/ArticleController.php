@@ -39,13 +39,17 @@ class ArticleController extends Controller
     {
         $request->validate([
             'comment' => 'required|max:100',
+            'rate' => 'required'
         ]);
 
         $result = ArticleUser::where('user_id', '=', auth()->id())->where('article_id', '=', $request->id)->first();
 
         if ($result === null) {
             auth()->user()->articles()->attach([
-                $request->id => ['comment' => $request->comment]
+                $request->id => [
+                    'comment' => $request->comment,
+                    'rate' => $request->rate
+                ]
             ]);
 
 
@@ -54,7 +58,10 @@ class ArticleController extends Controller
             auth()->user()->articles()->detach($request->id);
 
             auth()->user()->articles()->attach([
-                $request->id => ['comment' => $request->comment]
+                $request->id => [
+                    'comment' => $request->comment,
+                    'rate' => $request->rate
+                ]
             ]);
 
             return back();
