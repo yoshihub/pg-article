@@ -29,9 +29,11 @@ class ArticleController extends Controller
 
         $count = $article->users->count();
 
+        $avg = number_format(ArticleUser::where('article_id', '=', $article->id)->avg("rate"), 2);
+
         return view(
             'articles.show',
-            ['article' => $article, 'users' => $users, 'count' => $count]
+            ['article' => $article, 'users' => $users, 'count' => $count, 'avg' => $avg]
         );
     }
 

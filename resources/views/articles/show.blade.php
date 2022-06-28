@@ -18,6 +18,10 @@
             <i class="bi bi-chat-left-dots-fill text-success font-weight-bolder">
             </i>{{$count}}件
           </span>
+          <span class="fs-6 mt-1">
+            <i class="bi bi-star-fill text-warning ms-2"></i>
+            レビュー {{$avg}}
+          </span>
         </p>
       </div>
       @if ($errors->any())
@@ -60,7 +64,7 @@
 
     <div class="card">
       <p class="card-title">{{$user->name}}さん
-        <span class="ms-1">@for ($i = 0; $i < $user->pivot->rate; $i++) ⭐️ @endfor</span>
+        <span class="ms-2">@for ($i = 0; $i < $user->pivot->rate; $i++) <i class="bi bi-star-fill text-warning"></i> @endfor</span>
       </p>
 
       <p class="card-text">{{$user->pivot->comment}}</p>
