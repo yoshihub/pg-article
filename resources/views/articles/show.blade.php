@@ -59,7 +59,18 @@
 
 
   <div>
-    <h3>口コミ一覧</h3>
+    <h3>
+      口コミ一覧
+      <form class="d-inline-block ms-2" method="get" action="/articles/show/{{$article->id}}">
+        @csrf
+        <select name="select">
+          <option value="desc-day">新しい順</option>
+          <option value="desc">評価の高い順</option>
+          <option value="asc">評価の低い順</option>
+        </select>
+        <button type="submit">並べ替え</button>
+      </form>
+    </h3>
     @foreach($users as $user)
 
     <div class="card">

@@ -20,12 +20,29 @@ class ArticleController extends Controller
         return view('articles.subject', ['articles' => $articles]);
     }
 
-    public function show(Article $article)
+    public function show(Article $article, Request $request)
     {
-        $users = Article::find($article->id)->users()
-            ->withPivot('created_at AS make_at')
-            ->orderBy('make_at', 'desc')
-            ->get();
+        $order = "desc-day";
+        if ($request->select != null) {
+            $order = $request->select;
+        }
+
+        if ($order === "desc-day") {
+            $users = Article::find($article->id)->users()
+                ->withPivot('created_at AS make_at')
+                ->orderBy('make_at', 'desc')
+                ->get();
+        } elseif ($order === "desc") {
+            $users = Article::find($article->id)->users()
+                ->withPivot('rate')
+                ->orderBy('rate', 'desc')
+                ->get();
+        } elseif ($order === "asc") {
+            $users = Article::find($article->id)->users()
+                ->withPivot('rate')
+                ->orderBy('rate', 'asc')
+                ->get();
+        }
 
         $count = $article->users->count();
 

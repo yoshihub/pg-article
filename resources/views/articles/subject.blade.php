@@ -17,7 +17,8 @@
           <p class="card-text">
             {{$article->body}}
           </p>
-          <a class="btn btn-primary col-3" href="/articles/show/{{$article->id}}">詳細表示</a>
+          <a class="btn btn-primary col-3" href="/articles/show/
+          {{$article->id}}">詳細表示</a>
         </div>
       </div>
     </div>
